@@ -8,7 +8,7 @@ from tensorflow.keras.models import load_model
 # LOAD MODEL
 # ==============================
 
-MODEL_PATH = "/content/drive/MyDrive/SIH_Diabetic_Retinopathy_XAI/best_model.keras"
+MODEL_PATH = "best_model.keras"
 
 model = load_model(MODEL_PATH)
 
