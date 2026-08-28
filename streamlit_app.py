@@ -33,7 +33,26 @@ st.set_page_config(
     page_icon="🩺",
     layout="wide"
 )
+st.markdown("""
+<style>
+    .stButton > button {
+        background-color: #0EA5A4;
+        color: white;
+        border-radius: 10px;
+        border: none;
+    }
 
+    [data-testid="stFileUploader"] {
+        border: 2px solid #0EA5A4;
+        border-radius: 12px;
+        padding: 10px;
+    }
+
+    h1, h2, h3 {
+        color: #14B8A6;
+    }
+</style>
+""", unsafe_allow_html=True)
 st.title("🩺 Diabetic Retinopathy Detection")
 st.write("Upload a retinal fundus image to get a 5-class DR prediction.")
 
