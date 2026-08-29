@@ -152,14 +152,61 @@ class_names = {
 # PAGE DESIGN
 # ==============================
 
-st.set_page_config(
-    page_title="Diabetic Retinopathy Detection",
-    page_icon="🩺",
-    layout="wide"
-)
+st.markdown("""
+<style>
+
+.stApp {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+h1, h2, h3 {
+    color: #0F766E !important;
+    font-weight: 700;
+}
+
+p, label {
+    color: #334155 !important;
+}
+
+.stButton > button {
+    background-color: #0F766E;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.stButton > button:hover {
+    background-color: #115E59;
+    color: white;
+}
+
+[data-testid="stFileUploader"] {
+    background-color: #FFFFFF;
+    border: 2px solid #99F6E4;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+[data-testid="stMetric"] {
+    background-color: #FFFFFF;
+    border: 1px solid #CCFBF1;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+hr {
+    border-color: #CBD5E1;
+}
 
 </style>
 """, unsafe_allow_html=True)
+
+st.title("🩺 Diabetic Retinopathy Detection")
+st.write("Upload a retinal fundus image to get a 5-class DR prediction.")
+
+st.divider()
 st.title("🩺 Diabetic Retinopathy Detection")
 st.write("Upload a retinal fundus image to get a 5-class DR prediction.")
 
