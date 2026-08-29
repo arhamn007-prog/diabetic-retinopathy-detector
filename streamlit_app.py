@@ -3,10 +3,85 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 from tensorflow.keras.models import load_model
+from supabase import create_client
+# ==============================
+# PAGE CONFIG
+# ==============================
+
+st.set_page_config(
+    page_title="Diabetic Retinopathy Detection",
+    page_icon="🩺",
+    layout="wide"
+)
 
 # ==============================
-# LOAD MODEL
+# SUPABASE CONNECTION
 # ==============================
+
+supabase = create_client(
+    st.secrets["SUPABASE_URL"],
+    st.secrets["SUPABASE_KEY"]
+)# ==============================
+# LOAD MODEL
+# # ==============================
+# LOGIN / SIGNUP
+# ==============================
+
+if "user" not in st.session_state:
+    st.session_state.user = None
+
+if st.session_state.user is None:
+
+    st.title("🩺 Diabetic Retinopathy Detection")
+    st.subheader("Login / Sign Up")
+
+    tab1, tab2 = st.tabs(["Login", "Sign Up"])
+
+    with tab1:
+        login_email = st.text_input("Email", key="login_email")
+        login_password = st.text_input(
+            "Password",
+            type="password",
+            key="login_password"
+        )
+
+        if st.button("Login"):
+            try:
+                response = supabase.auth.sign_in_with_password({
+                    "email": login_email,
+                    "password": login_password
+                })
+
+                st.session_state.user = response.user
+                st.success("Login successful!")
+                st.rerun()
+
+            except Exception as e:
+                st.error("Invalid email or password.")
+
+    with tab2:
+        signup_email = st.text_input("Email", key="signup_email")
+        signup_password = st.text_input(
+            "Password",
+            type="password",
+            key="signup_password"
+        )
+
+        if st.button("Create Account"):
+            try:
+                response = supabase.auth.sign_up({
+                    "email": signup_email,
+                    "password": signup_password
+                })
+
+                st.success(
+                    "Account created! Please check your email to verify your account."
+                )
+
+            except Exception as e:
+                st.error(str(e))
+
+    st.stop()==============================
 
 MODEL_PATH = "best_model.keras"
 
