@@ -17,17 +17,17 @@ st.markdown("""
 <style>
 
 .stApp {
-    background-color: #F8FAFC;
-    color: #0F172A;
+    background-color: #0F172A;
+    color: #E2E8F0;
 }
 
 h1, h2, h3 {
-    color: #0F766E !important;
+    color: #5EEAD4 !important;
     font-weight: 700;
 }
 
 p, label {
-    color: #334155 !important;
+    color: #CBD5E1 !important;
 }
 
 .stButton > button {
@@ -44,14 +44,14 @@ p, label {
 }
 
 [data-testid="stFileUploader"] {
-    background-color: #FFFFFF;
+    background-color: #1E293B;
     border: 2px solid #99F6E4;
     border-radius: 12px;
     padding: 10px;
 }
 
 [data-testid="stMetric"] {
-    background-color: #FFFFFF;
+    background-color: #1E293B;
     border: 1px solid #CCFBF1;
     border-radius: 12px;
     padding: 15px;
