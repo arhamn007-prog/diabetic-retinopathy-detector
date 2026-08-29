@@ -81,7 +81,7 @@ if st.session_state.user is None:
             except Exception as e:
                 st.error(str(e))
 
-    st.stop()==============================
+    st.stop()
 
 MODEL_PATH = "best_model.keras"
 
